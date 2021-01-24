@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SmartFoxWorkToolsProjectState">
-    <option name="branch" value="main" />
-    <option name="gitUrl" value="https://github.com/lexburner/longPolling-demo.git" />
-    <option name="localBranch" value="main" />
-    <option name="revision" value="ccd36bce62d3e0c3ac7b92a8857548f47e1bb3ad" />
-  </component>
-</project>
