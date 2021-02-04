@@ -15,6 +15,8 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.LoggerFactory;
 
 /**
+ *  1 ajax客户端 长轮训 http://127.0.0.1:8080/index.html 多开几个浏览器,用下面命令发布配置，看看所有的客户端是否 收到消息
+ *  2 发布配置 curl -X GET "localhost:8080/publishConfig?dataId=user&configInfo=1010"
  * @author jingfeng.xjf
  * @date 2021-01-23
  */
