@@ -1,2 +1,10 @@
-server:
-  port: 8080
+spring:
+  profiles:
+    active: default
+#    active: v1
+#    active: v2
+  thymeleaf:
+    prefix: "classpath:/template/"
+    suffix: ".html"
+    encoding: UTF-8
+    cache: false
