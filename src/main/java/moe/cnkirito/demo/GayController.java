@@ -31,6 +31,7 @@ public class GayController {
      * 灰度测试入口
      * http://localhost/login/1
      * http://localhost/login/2
+     * http://localhost/login/3
      *
      * 1 用户全局认证的时候，根据用户已有的属性，设置cookie值，例如: saas的租户id, 1,2,3的发送到v1
      * @return
@@ -40,15 +41,18 @@ public class GayController {
     public ModelAndView publishConfig(HttpServletResponse response, @PathVariable("mockUserId") String mockUserId) {
         if (routeTable.isEmpty()){
             routeTable.put("1","V1");
-            routeTable.put("2","V1");
-            routeTable.put("3","V2");
+            routeTable.put("2","V2");
+            routeTable.put("3","V3");
         }
         String version = routeTable.get(mockUserId);
         log.info("userId: [{}] -> version: [{}] ",mockUserId,version);
-        //根据用户的登录属性，或者自定义规则，来实现 和version的匹配,这里为了匹配方便，就在不同的版本里写死了
+        //Cookie 根据用户的登录属性，或者自定义规则，来实现 和version的匹配,这里为了匹配方便，就在不同的版本里写死了
         Cookie cookie = new Cookie("version", version);
         cookie.setPath("/");
         response.addCookie(cookie);
+        //Header
+        response.addHeader("version",version);
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("gay");
         return modelAndView;

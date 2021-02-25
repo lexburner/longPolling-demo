@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript">
+
+    function getHeaders(){
+        var req = new XMLHttpRequest();
+        req.open('GET', document.location.href, false);
+        req.send(null);
+        var headerArr = req.getAllResponseHeaders().split('\n');
+        var headers = {};
+        headerArr.forEach(item=>{
+            if(item!==''){
+                var index = item.indexOf(':');
+                var key = item.slice(0,index);
+                var value = item.slice(index+1).trim();
+                headers[key] = value
+            }
+
+        })
+        return headers
+    }
+
+
+
 function loadXMLDoc()
 {
+//var headers = getHeaders();
+//console.log(headers);
 var xmlhttp;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -22,7 +45,10 @@ xmlhttp.onreadystatechange=function()
     document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
     }
   }
+//设置headers头部
+
 xmlhttp.open("GET","/grayRequest",true);
+//xmlhttp.setRequestHeader('version',headers['version']);
 xmlhttp.send();
 }
 </script>
