@@ -23,6 +23,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * https://mp.weixin.qq.com/s/veIVG2lrazDjsHwbhG-aQA
+ *
+ * 处理异步请求,不会结束这个 socket连接，否则 会关闭输出流，结束整个会话
+ * org.apache.catalina.connector.CoyoteAdapter#service(org.apache.coyote.Request, org.apache.coyote.Response)
  * @author jingfeng.xjf
  * @date 2021-01-23
  */
